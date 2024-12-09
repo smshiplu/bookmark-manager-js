@@ -36,8 +36,9 @@ onAuthStateChanged(auth, user => {
     
     if (window.location.pathname != "/") {
       window.location.href = "/";
-      // window.history.replaceState( {}, '', "http://localhost:8080/" );
-      // window.location.replace("index.html")
+    }
+    if (window.location.pathname == "/login.html") {
+      window.history.forward(1);
     }
 
     loggedInView.hidden = false;
@@ -180,6 +181,9 @@ onAuthStateChanged(auth, user => {
     console.log("User Logged Out");
     if (window.location.pathname == "/") {
       window.location.href = "/login.html";
+    }
+    if (window.location.pathname == "/") {
+      window.history.forward(1);
     }
     
     loggedOutView.hidden = false;
