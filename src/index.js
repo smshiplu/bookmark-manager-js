@@ -25,15 +25,16 @@ const filter = document.querySelector(".filter");
 const themeToggleBtn = document.querySelectorAll(".themeToggleBtn")
 
 
-if (window.location.pathname !== "/") {
-  window.location.href = "/";
-}
 
 linkTag.href = favicon;
 
 onAuthStateChanged(auth, user => {
   if (user) {
     // console.log("User Logged In");
+    if (window.location.pathname != "/") {
+      window.location.href = "/";
+    }
+    
     whenLoggedIn.hidden = false;
     generateUserMenu(dropdownUl, user);
     generateSelectOption(categoryList, category);
@@ -174,6 +175,10 @@ onAuthStateChanged(auth, user => {
 
   } else {
     // console.log("User Logged Out");
+    if (window.location.pathname != "/") {
+      window.location.href = "/";
+    }
+    
     whenLoggedOut.hidden = false;
     whenLoggedIn.hidden = true;
     signInBtn.addEventListener("click", async e => {
