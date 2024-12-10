@@ -11,8 +11,8 @@ import { categoryList } from "./data";
 const provider = new GoogleAuthProvider();
 
 const linkTag = document.querySelector("link");
-const loggedInView = document.querySelector(".loggedInView");
-const loggedOutView = document.querySelector(".loggedOutView");
+const whenLoggedIn = document.querySelector(".whenLoggedIn");
+const whenLoggedOut = document.querySelector(".whenLoggedOut");
 const signInBtn = document.querySelector(".signInBtn");
 const userMenuBtn = document.querySelector(".userMenuBtn");
 const dropdown = document.querySelector(".dropdown");
@@ -25,32 +25,27 @@ const filter = document.querySelector(".filter");
 const themeToggleBtn = document.querySelectorAll(".themeToggleBtn")
 
 
-
+if (window.location.pathname !== "/") {
+  window.location.href = "/";
+}
 
 linkTag.href = favicon;
 
 onAuthStateChanged(auth, user => {
   if (user) {
-    console.log("User Logged In");
-    console.log(user);
-    
-    if (window.location.pathname != "/") {
-      window.location.href = "/";
-    }
-    if (window.location.pathname == "/login.html") {
-      window.history.forward(1);
-    }
-
-    loggedInView.hidden = false;
+    // console.log("User Logged In");
+    whenLoggedIn.hidden = false;
     generateUserMenu(dropdownUl, user);
     generateSelectOption(categoryList, category);
     handleDarkMode(themeToggleBtn);
     userMenuBtn.addEventListener("click", e => handleUserMenuToggle(dropdown));
-    logOutBtn.addEventListener("click", e => {
-      auth.signOut()
+
+    logOutBtn.addEventListener("click", async e => {
+      await auth.signOut()
       .then(() => {
         loggedOutView.hidden = false;
         loggedInView.hidden = true;
+        location.reload(true);
       })
       .catch(error => {
         console.log(error);
@@ -178,17 +173,15 @@ onAuthStateChanged(auth, user => {
     });
 
   } else {
-    console.log("User Logged Out");
-    if (window.location.pathname == "/") {
-      window.location.href = "/login.html";
-    }
-
-    loggedOutView.hidden = false;
+    // console.log("User Logged Out");
+    whenLoggedOut.hidden = false;
+    whenLoggedIn.hidden = true;
     signInBtn.addEventListener("click", async e => {
       await signInWithPopup(auth, provider)
       .then(() => {
-        loggedInView.hidden = false;
-        loggedOutView.hidden = true;
+        whenLoggedIn.hidden = false;
+        whenLoggedOut.hidden = true;
+        location.reload(true);
       })
       .catch(error => {
         console.log(error);

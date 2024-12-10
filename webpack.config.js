@@ -32,8 +32,7 @@ module.exports={
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "src/index.html", to: "index.html" },
-        { from: "src/login.html", to: "login.html" }
+        { from: "src/index.html", to: "index.html", noErrorOnMissing: true }
       ]
     }),
     new webpack.DefinePlugin({

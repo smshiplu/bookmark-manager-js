@@ -10,12 +10,7 @@ export const handleSelectOption = (arr, elem) => {
 }
 
 export const generateUserMenu = (parentElem, user) => {
-  const liElem = document.createElement("li");
-  liElem.className += "w-full pt-0 p-3 my-2 border-b"
-  const liElemText = document.createTextNode(user.email);
-  liElem.appendChild(liElemText);
-  parentElem.insertBefore(liElem, parentElem.childNodes[0]);
-
+  parentElem.firstChild.textContent = user.email;
 }
 
 export const handleUserMenuToggle = (showHideElem) => {
