@@ -182,10 +182,7 @@ onAuthStateChanged(auth, user => {
     if (window.location.pathname == "/") {
       window.location.href = "/login.html";
     }
-    if (window.location.pathname == "/") {
-      window.history.forward(1);
-    }
-    
+
     loggedOutView.hidden = false;
     signInBtn.addEventListener("click", async e => {
       await signInWithPopup(auth, provider)
