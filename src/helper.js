@@ -160,7 +160,7 @@ export const toastMessage = (message, type) => {
 
 export const loadingFull = (boolean) => {
   const divElement = document.createElement("div");
-  divElement.className += "loading-full overlay fixed top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-gray-900 bg-opacity-90";
+  divElement.className += "loading-full overlay fixed w-full h-full top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-gray-900 bg-opacity-90 z-50";
   if(boolean) {
     const innerDiv = document.createElement("div");
     innerDiv.className =+ "bg-white max-w-32 w-full";

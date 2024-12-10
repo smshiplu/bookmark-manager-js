@@ -7,8 +7,8 @@
   <title>Bookmark Manager - Javascript</title>
 </head>
 
-<body>
-  <main class="relative w-full min-h-screen dark:bg-slate-900 bg-white transition-bg duration-500">
+<body class="dark:bg-slate-900 bg-white">
+  <main class="relative w-full min-h-screen  transition-bg duration-500">
     <section class="whenLoggedIn bg-white dark:bg-gray-900" hidden="true">
       <div class="container py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
           <div class="icons flex items-center justify-end gap-2 -mt-4 mb-4">
@@ -68,33 +68,34 @@
             </div>
             <button type="submit" class="my-6 px-6 py-3.5 text-base font-medium text-white inline-flex items-center bg-[#BC2C2A] hover:bg-[#DDA027] focus:ring-4 focus:outline-none focus:ring-[#DDA027] rounded-lg text-center dark:bg-[#BC2C2A]dark:hover:bg-[#BC2C2A] dark:focus:[#BC2C2A]">Add Bookmark</button>
           </form>
-          <div class="my-12">
-            <div class="filter flex flex-wrap items-center justify-center gap-1  mb-8 z-40"></div>
+          <div class="mt-20 mb-10">
+            <div class="filter flex flex-wrap items-center justify-center gap-1 mb-10 pb-4 z-40 border-b border-b-gray-200 dark:border-b-gray-800"></div>
             <div class="cards flex flex-wrap items-center justify-center gap-4"></div>
           </div>
       </div>
     </section>
 
-    <section class="whenLoggedOut relative w-full" hidden="true">
-      <div class="login fixed left-0 top-0 bottom-0 right-0 z-40 flex items-center justify-center  bg-gray-900/90">
-        <div class="max-w-sm w-xs md:w-full flex flex-col items-center justify-center bg-gray-50 min-h-20 p-4 rounded-md">
+    <section class="whenLoggedOut w-full" hidden="true">
+      <div class="login fixed left-0 top-0 bottom-0 right-0 z-40 flex items-center justify-center  bg-gray-900 bg-opacity-90">
+        <div class="max-w-sm w-xs md:w-full flex flex-col items-center justify-center dark:bg-gray-800 bg-gray-50 min-h-20 p-4 rounded-md">
           <div class="flex flex-col items-center justify-center mb-10">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
               <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
               </svg>
-              <p class="text-gray-800 text-lg">Sign in with Google account.</p>
+              <p class="text-gray-900 dark:text-white text-lg">Sign in with Google account.</p>
           </div>
     
           <button type="button" class="signInBtn w-full text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center flex items-center justify-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="w-4 h-4 me-2" width="48" height="48" viewBox="0 0 48 48">
               <linearGradient id="6769YB8EDCGhMGPdL9zwWa_ho8QlOYvMuG3_gr1" x1="15.072" x2="24.111" y1="13.624" y2="24.129" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e3e3e3"></stop><stop offset="1" stop-color="#e2e2e2"></stop></linearGradient><path fill="url(#6769YB8EDCGhMGPdL9zwWa_ho8QlOYvMuG3_gr1)" d="M42.485,40H5.515C4.126,40,3,38.874,3,37.485V10.515C3,9.126,4.126,8,5.515,8h36.969	C43.874,8,45,9.126,45,10.515v26.969C45,38.874,43.874,40,42.485,40z"></path><linearGradient id="6769YB8EDCGhMGPdL9zwWb_ho8QlOYvMuG3_gr2" x1="26.453" x2="36.17" y1="25.441" y2="37.643" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f5f5f5"></stop><stop offset=".03" stop-color="#eee"></stop><stop offset="1" stop-color="#eee"></stop></linearGradient><path fill="url(#6769YB8EDCGhMGPdL9zwWb_ho8QlOYvMuG3_gr2)" d="M42.485,40H8l37-29v26.485C45,38.874,43.874,40,42.485,40z"></path><linearGradient id="6769YB8EDCGhMGPdL9zwWc_ho8QlOYvMuG3_gr3" x1="3" x2="45" y1="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#d74a39"></stop><stop offset="1" stop-color="#c73d28"></stop></linearGradient><path fill="url(#6769YB8EDCGhMGPdL9zwWc_ho8QlOYvMuG3_gr3)" d="M5.515,8H8v32H5.515C4.126,40,3,38.874,3,37.485V10.515C3,9.126,4.126,8,5.515,8z M42.485,8	H40v32h2.485C43.874,40,45,38.874,45,37.485V10.515C45,9.126,43.874,8,42.485,8z"></path><linearGradient id="6769YB8EDCGhMGPdL9zwWd_ho8QlOYvMuG3_gr4" x1="24" x2="24" y1="8" y2="38.181" gradientUnits="userSpaceOnUse"><stop offset="0" stop-opacity=".15"></stop><stop offset="1" stop-opacity=".03"></stop></linearGradient><path fill="url(#6769YB8EDCGhMGPdL9zwWd_ho8QlOYvMuG3_gr4)" d="M42.485,40H30.515L3,11.485v-0.969C3,9.126,4.126,8,5.515,8h36.969	C43.874,8,45,9.126,45,10.515v26.969C45,38.874,43.874,40,42.485,40z"></path><linearGradient id="6769YB8EDCGhMGPdL9zwWe_ho8QlOYvMuG3_gr5" x1="3" x2="45" y1="17.73" y2="17.73" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f5f5f5"></stop><stop offset="1" stop-color="#f5f5f5"></stop></linearGradient><path fill="url(#6769YB8EDCGhMGPdL9zwWe_ho8QlOYvMuG3_gr5)" d="M43.822,13.101L24,27.459L4.178,13.101C3.438,12.565,3,11.707,3,10.793v-0.278	C3,9.126,4.126,8,5.515,8h36.969C43.874,8,45,9.126,45,10.515v0.278C45,11.707,44.562,12.565,43.822,13.101z"></path><linearGradient id="6769YB8EDCGhMGPdL9zwWf_ho8QlOYvMuG3_gr6" x1="24" x2="24" y1="8.446" y2="27.811" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e05141"></stop><stop offset="1" stop-color="#de4735"></stop></linearGradient><path fill="url(#6769YB8EDCGhMGPdL9zwWf_ho8QlOYvMuG3_gr6)" d="M42.485,8h-0.3L24,21.172L5.815,8h-0.3C4.126,8,3,9.126,3,10.515v0.278	c0,0.914,0.438,1.772,1.178,2.308L24,27.459l19.822-14.358C44.562,12.565,45,11.707,45,10.793v-0.278C45,9.126,43.874,8,42.485,8z"></path>
-              </svg>
+            </svg>
             Gmail Sign In
           </button>
         </div>
       </div>
     </section>
-    <!-- <p class="absolute top-full left-1/2 -translate-x-1/2 z-50 text-center py-5 text-xs text-gray-900  dark:text-white">© 2024. All rights reserved.</p> -->
+
+    <p class="copyright absolute bottom-0 left-1/2 -translate-x-1/2 text-center w-full py-5 text-xs bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col items-center justify-end" hidden="true">© 2024. All rights reserved.</p>
   </main>
   <script src="./assets/bundle.js" defer></script>
 </body>

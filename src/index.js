@@ -23,7 +23,7 @@ const addForm = document.querySelector(".addForm");
 const cards = document.querySelector(".cards");
 const filter = document.querySelector(".filter");
 const themeToggleBtn = document.querySelectorAll(".themeToggleBtn")
-
+const copyright = document.querySelector(".copyright");
 
 
 linkTag.href = favicon;
@@ -43,12 +43,11 @@ onAuthStateChanged(auth, user => {
     handleDarkMode(themeToggleBtn);
     userMenuBtn.addEventListener("click", e => handleUserMenuToggle(dropdown));
 
-    logOutBtn.addEventListener("click",  e => {
-      auth.signOut()
+    logOutBtn.addEventListener("click", async e => {
+      await auth.signOut()
       .then(() => {
         whenLoggedOut.hidden = false;
         whenLoggedIn.hidden = true;
-        location.reload(true);
       })
       .catch(error => {
         console.log(error);
@@ -180,7 +179,7 @@ onAuthStateChanged(auth, user => {
     if (window.location.pathname != "/") {
       window.location.href = "/";
     }
-    
+    handleDarkMode(themeToggleBtn);
     whenLoggedOut.hidden = false;
     whenLoggedIn.hidden = true;
     signInBtn.addEventListener("click", async e => {
@@ -195,7 +194,8 @@ onAuthStateChanged(auth, user => {
       })
     });
   }
-
+  copyright.textContent = `© ${new Date().getFullYear()}. All rights reserved.`
+  copyright.hidden = false;
 });
 
 
