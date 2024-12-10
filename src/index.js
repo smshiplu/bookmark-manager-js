@@ -36,6 +36,8 @@ onAuthStateChanged(auth, user => {
     }
     
     whenLoggedIn.hidden = false;
+    whenLoggedOut.hidden = true;
+
     generateUserMenu(dropdownUl, user);
     generateSelectOption(categoryList, category);
     handleDarkMode(themeToggleBtn);
@@ -44,8 +46,8 @@ onAuthStateChanged(auth, user => {
     logOutBtn.addEventListener("click", async e => {
       await auth.signOut()
       .then(() => {
-        loggedOutView.hidden = false;
-        loggedInView.hidden = true;
+        whenLoggedOut.hidden = false;
+        whenLoggedIn.hidden = true;
         location.reload(true);
       })
       .catch(error => {
