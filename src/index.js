@@ -43,8 +43,8 @@ onAuthStateChanged(auth, user => {
     handleDarkMode(themeToggleBtn);
     userMenuBtn.addEventListener("click", e => handleUserMenuToggle(dropdown));
 
-    logOutBtn.addEventListener("click", async e => {
-      await auth.signOut()
+    logOutBtn.addEventListener("click",  e => {
+      auth.signOut()
       .then(() => {
         whenLoggedOut.hidden = false;
         whenLoggedIn.hidden = true;
