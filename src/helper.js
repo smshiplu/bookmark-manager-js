@@ -62,10 +62,10 @@ export const generateTemplate = (bookmark) => {
   const updatedAt = new Date(updatedAtTimestamp).toLocaleDateString();
 
   return `
-    <div class="card max-w-80 w-full shadow-md border rounded p-2 dark:bg-slate-800 bg-gray-50  ">
+    <div class="card max-w-80 w-full shadow-md border rounded p-2 dark:bg-slate-800 bg-gray-50">
       <div class="flex flex-col items-start justify-start mb-4 relative">
         ${ bookmark.title.length > 34 ? 
-          `<div class="tooltip absolute -top-4 -translate-y-full left-1/2 -translate-x-1/2 inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-500 bg-gray-900 rounded-lg shadow-sm opacity-0 dark:bg-gray-700 text-left w-full">${bookmark.title}<svg class="w-6 h-6 text-gray-900 dark:text-gray-700 absolute -bottom-3 left-1/2 -translate-x-1/2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M18.425 10.271C19.499 8.967 18.57 7 16.88 7H7.12c-1.69 0-2.618 1.967-1.544 3.271l4.881 5.927a2 2 0 0 0 3.088 0l4.88-5.927Z" clip-rule="evenodd"/></svg>
+          `<div class="tooltip invisible absolute -top-4 -translate-y-full left-1/2 -translate-x-1/2 inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-500 bg-gray-900 rounded-lg shadow-sm opacity-0 dark:bg-gray-700 text-left w-full">${bookmark.title}<svg class="w-6 h-6 text-gray-900 dark:text-gray-700 absolute -bottom-3 left-1/2 -translate-x-1/2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M18.425 10.271C19.499 8.967 18.57 7 16.88 7H7.12c-1.69 0-2.618 1.967-1.544 3.271l4.881 5.927a2 2 0 0 0 3.088 0l4.88-5.927Z" clip-rule="evenodd"/></svg>
           </div>` : "" }
 
         <p class="title line-clamp-1 text-left font-semibold dark:text-white overflow-hidden">${bookmark.title}</p>
@@ -102,20 +102,20 @@ export const generateTemplate = (bookmark) => {
 export const handleTooltip = (htmlCollection) => {
   htmlCollection.forEach(title => {
     title.addEventListener("mouseover", e => {
-      
       if(title.previousElementSibling) {
         title.previousElementSibling.classList.remove("opacity-0");
+        title.previousElementSibling.classList.remove("invisible");
+        title.previousElementSibling.classList.add("visible");
         title.previousElementSibling.classList.add("opacity-100");
-        title.previousElementSibling.classList.add("z-20");
       }
     }, false);
     title.addEventListener("mouseout", e => {
       if(title.previousElementSibling) {
         title.previousElementSibling.classList.add("opacity-0");
+        title.previousElementSibling.classList.add("invisible");
         title.previousElementSibling.classList.remove("opacity-100");
-        title.previousElementSibling.classList.remove("z-20");
+        title.previousElementSibling.classList.remove("visible");
       }
-      
     }, false);
   });
 }

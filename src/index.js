@@ -1,12 +1,11 @@
-import "./style.css";
-import favicon from  "./images/icon.png";
-
 import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup} from "firebase/auth";
 import { onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
 import { validateForm, addBookmarkCardToDom, handleDarkMode, handleUserMenuToggle, generateUserMenu, generateSelectOption, addFilterToDom, removeFilterBtnActiveClass, handleTooltip } from "./helper";
 import { auth, bookmarkListRef, addBookmark, updateBookmark, deleteBookmark, getAllBookmarks, getBookmarksByCategory } from "./firebase";
 import { categoryList } from "./data";
 
+import "./style.css";
+import favicon from  "./images/favicon.png";
 
 const provider = new GoogleAuthProvider();
 
